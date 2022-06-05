@@ -1,0 +1,812 @@
+<!doctype html>
+<html><head><title>Anh Ha Pham - Xendit Challenge</title><meta charset="UTF-8"><link href="http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700,700italic|Roboto:400,700,700italic,400italic" rel="stylesheet" type="text/css"><style>/*
+ * Copyright 2014 Quip
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may
+ * not use this file except in compliance with the License. You may obtain
+ * a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+body {
+    font-size: 15px;
+    color: #333;
+    background: white;
+    padding: 60px 95px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern";
+    font-kerning: normal;
+    -moz-font-feature-settings: "kern";
+    -webkit-font-feature-settings: "kern";
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+th {
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    margin: 0;
+    margin-top: 1.25em;
+    margin-bottom: 0.75em;
+}
+
+h1 {
+    font-size: 35px;
+    line-height: 42px;
+}
+
+h1:first-child {
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 22px;
+    line-height: 22px;
+}
+
+h3 {
+    font-size: 18px;
+    line-height: 16px;
+}
+
+h4,
+h5,
+h6 {
+    font-size: 15px;
+    line-height: 14px;
+}
+h5 {
+    font-style: italic;
+}
+
+h6 {
+    font-weight: unset;
+    text-decoration: underline;
+}
+
+.capitalize-h3 h3 {
+    text-transform: uppercase;
+}
+
+/* Body text */
+body,
+p,
+ul,
+ol,
+td {
+    font-family: "Crimson Text", serif;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+blockquote,
+q {
+    display: block;
+    margin: 1em 0;
+    font-style: italic;
+}
+
+blockquote a,
+q a {
+    text-decoration: underline;
+}
+
+blockquote {
+    padding-left: 10px;
+    border-left: 4px solid #a6a6a6;
+}
+
+q {
+    color: #a6a6a6;
+    line-height: 40px;
+    font-size: 24px;
+    text-align: center;
+    quotes: none;
+}
+
+q a {
+    color: #a6a6a6;
+}
+
+code,
+pre {
+    font-family: Consolas, "Liberation Mono", Menlo, "Courier Prime Web",
+        Courier, monospace;
+    background: #f2f2f2;
+}
+
+code {
+    padding: 1px;
+    margin: 0 -1px;
+    border-radius: 3px;
+}
+
+pre {
+    display: block;
+    line-height: 20px;
+    text-shadow: 0 1px white;
+    padding: 5px 5px 5px 30px;
+    white-space: nowrap;
+    position: relative;
+    margin: 1em 0;
+}
+
+pre:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 15px;
+    border-left: solid 1px #dadada;
+}
+
+/* Text Alignment */
+.line {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: end;
+}
+
+/* Lists */
+div[data-section-style="5"],
+div[data-section-style="6"],
+div[data-section-style="7"] {
+    margin: 12px 0;
+}
+
+ul {
+    padding: 0 0 0 40px;
+}
+
+ul li {
+    margin-bottom: 0.4em;
+}
+
+/* Bulleted list */
+div[data-section-style="5"] ul {
+    list-style-type: disc;
+}
+div[data-section-style="5"] ul ul {
+    list-style-type: circle;
+}
+div[data-section-style="5"] ul ul ul {
+    list-style-type: square;
+}
+div[data-section-style="5"] ul ul ul ul {
+    list-style-type: disc;
+}
+div[data-section-style="5"] ul ul ul ul ul {
+    list-style-type: circle;
+}
+div[data-section-style="5"] ul ul ul ul ul ul {
+    list-style-type: square;
+}
+
+/* Numbered list */
+div[data-section-style="6"] ul {
+    list-style-type: decimal;
+}
+div[data-section-style="6"] ul ul {
+    list-style-type: lower-alpha;
+}
+div[data-section-style="6"] ul ul ul {
+    list-style-type: lower-roman;
+}
+div[data-section-style="6"] ul ul ul ul {
+    list-style-type: decimal;
+}
+div[data-section-style="6"] ul ul ul ul ul {
+    list-style-type: lower-alpha;
+}
+div[data-section-style="6"] ul ul ul ul ul ul {
+    list-style-type: lower-roman;
+}
+
+/* Checklist */
+div[data-section-style="7"] ul {
+    list-style-type: none;
+}
+
+div[data-section-style="7"] ul li:before {
+    content: "\2610";
+    position: absolute;
+    display: inline;
+    margin-right: 1.2em;
+    margin-left: -1.2em;
+}
+
+div[data-section-style="7"] ul li.parent:before {
+    content: "";
+}
+
+div[data-section-style="7"] ul li.checked {
+    text-decoration: line-through;
+}
+
+div[data-section-style="7"] ul li.checked:before {
+    content: "\2611";
+    text-decoration: none;
+}
+
+/* Tables */
+div[data-section-style="8"] {
+    margin: 12px 0;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: separate;
+    border: solid 1px #bbb;
+    table-layout: fixed;
+    position: relative;
+}
+
+table th,
+table td {
+    padding: 2px 2px 0;
+    min-width: 1.5em;
+    word-wrap: break-word;
+}
+
+table th {
+    border-bottom: 1px solid #c7cbd1;
+    background: #f2f2f2;
+    font-weight: bold;
+    vertical-align: bottom;
+    color: #3a4449;
+    text-align: center;
+}
+
+table td {
+    padding-top: 0;
+    border-left: 1px solid #c7cbd1;
+    border-top: 1px solid #c7cbd1;
+    vertical-align: top;
+}
+
+table td.bold {
+    font-weight: bold;
+}
+
+table td.italic {
+    font-style: italic;
+}
+
+table td.underline {
+    text-decoration: underline;
+}
+
+table td.strikethrough {
+    text-decoration: line-through;
+}
+
+table td.underline.strikethrough {
+    text-decoration: underline line-through;
+}
+
+table td:first-child {
+    border-left: hidden;
+}
+
+table tr:first-child td {
+    border-top: hidden;
+}
+
+/* Images */
+div[data-section-style="11"] {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div[data-section-style="11"][data-section-float="0"] {
+    clear: both;
+    text-align: center;
+}
+
+div[data-section-style="11"][data-section-float="1"] {
+    float: left;
+    clear: left;
+    margin-right: 20px;
+}
+
+div[data-section-style="11"][data-section-float="2"] {
+    float: right;
+    clear: right;
+    margin-left: 20px;
+}
+
+div[data-section-style="11"] img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+div[data-section-style="11"].show-border {
+    outline: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05);
+}
+
+hr {
+    width: 70px;
+    margin: 20px auto;
+}
+
+/* Apps */
+div[data-section-style="19"].placeholder {
+    margin: 0.8em auto;
+    padding: 4px 0;
+    display: block;
+    color: #3d87f5;
+    text-align: center;
+    border: 1px solid rgba(41, 182, 242, 0.2);
+    border-radius: 3px;
+    background: #e9f8fe;
+    font-family: Roboto, sans-serif;
+}
+
+div[data-section-style="19"].first-party-element {
+    margin-bottom: 10px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+div[data-section-style="19"].first-party-element.kanban {
+    background-image: url("https://quip-cdn.com/nK0hSyhsb4jrLIL2s5Ma-g");
+    height: 166px;
+}
+
+div[data-section-style="19"].first-party-element.calendar {
+    background-image: url("https://quip-cdn.com/OYujqLny03RILxcLIiyERg");
+    height: 244px;
+}
+
+div[data-section-style="19"].first-party-element.poll {
+    background-image: url("https://quip-cdn.com/fbIiFrcKGv__4NB7CBfxoA");
+    height: 116px;
+}
+
+div[data-section-style="19"].first-party-element.countdown {
+    background-image: url("https://quip-cdn.com/3bPhykD2dBei9sSjCWteTQ");
+    height: 96px;
+}
+
+div[data-section-style="19"].first-party-element.process_bar {
+    background-image: url("https://quip-cdn.com/ybQlHnHEIIBLog5rZmYs_w");
+    height: 36px;
+}
+
+div[data-section-style="19"].first-party-element.project_tracker {
+    background-image: url("https://quip-cdn.com/OFQU087b4Mxzz1ZaHwtjXA");
+    height: 164px;
+}
+
+div[data-section-style="19"] img {
+    margin: 0.5em;
+}
+
+div[data-section-style="19"] img.masked-image {
+    margin: 0;
+    transform-origin: top left;
+}
+
+div[data-section-style="19"] .image-mask {
+    position: relative;
+    overflow: hidden;
+}
+/*
+ * Copyright 2019 Quip
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may
+ * not use this file except in compliance with the License. You may obtain
+ * a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+body {
+    counter-reset: indent0 indent1 indent2 indent3 indent4 indent5 indent6
+        indent7 indent8;
+}
+
+/* Numbered list */
+div[data-section-style="6"] {
+    counter-reset: indent0 indent1 indent2 indent3 indent4 indent5 indent6
+        indent7 indent8;
+}
+div[data-section-style="6"].list-numbering-continue {
+    counter-reset: none;
+}
+div[data-section-style="6"].list-numbering-restart-at {
+    counter-reset: indent0 var(--indent0) indent1 indent2 indent3 indent4
+        indent5 indent6 indent7 indent8;
+}
+div[data-section-style="6"] ul {
+    /* indent0 is not reset since it is shared across the div elements */
+    list-style-type: none !important;
+}
+div[data-section-style="6"] ul ul {
+    counter-reset: indent1;
+}
+div[data-section-style="6"] ul ul ul {
+    counter-reset: indent2;
+}
+div[data-section-style="6"] ul ul ul ul {
+    counter-reset: indent3;
+}
+div[data-section-style="6"] ul ul ul ul ul {
+    counter-reset: indent4;
+}
+div[data-section-style="6"] ul ul ul ul ul ul {
+    counter-reset: indent5;
+}
+div[data-section-style="6"] ul li {
+    counter-increment: indent0;
+}
+div[data-section-style="6"] ul ul li {
+    counter-increment: indent1;
+}
+div[data-section-style="6"] ul ul ul li {
+    counter-increment: indent2;
+}
+div[data-section-style="6"] ul ul ul ul li {
+    counter-increment: indent3;
+}
+div[data-section-style="6"] ul ul ul ul ul li {
+    counter-increment: indent4;
+}
+div[data-section-style="6"] ul ul ul ul ul ul li {
+    counter-increment: indent5;
+}
+div[data-section-style="6"] ul li:before {
+    content: counter(indent0, decimal) ". ";
+}
+div[data-section-style="6"] ul ul li:before {
+    content: counter(indent1, lower-alpha) ". ";
+}
+div[data-section-style="6"] ul ul ul li:before {
+    content: counter(indent2, lower-roman) ". ";
+}
+div[data-section-style="6"] ul ul ul ul li:before {
+    content: counter(indent3, decimal) ". ";
+}
+div[data-section-style="6"] ul ul ul ul ul li:before {
+    content: counter(indent4, lower-alpha) ". ";
+}
+div[data-section-style="6"] ul ul ul ul ul ul li:before {
+    content: counter(indent5, lower-roman) ". ";
+}
+</style></head><body><h1 id='temp:C:DUR7623d055a7d0b14be998cdf09'>Anh Ha Pham - Xendit Challenge </h1>
+
+<u><i><b>Created Date</b></i></u>: <control data-remapped="true" id="temp:C:DUR50c93a4ddf2881f536c6649e9">Friday, June 3</control><br/>
+
+<u><i><b>Author</b></i></u>: Anh Ha Pham<br/>
+
+<h2 id='temp:C:DURaf2f87a3a58ce0c13b8f34614'>Question (Manual QA Engineer)</h2>
+
+<div style="" class="" data-section-style='6'><ul id='temp:C:DUR797b1f7744df7228eb9d74626'><li id='temp:C:DURe2ab16904cdbefd26005a6c63' class='' value='1'>Can you provide ALL detailed test cases for the given endpoint (in microservice A)?
+
+<br/></li><li id='temp:C:DUR5f52e08b716adb8404025ecf4' class=''>Assume you have to call this endpoint (in microservice A) from another microservice (B). What kind of test case should you prepare to make sure this works accordingly?
+
+<br/></li></ul></div><h2 id='temp:C:DUR56e60037a62d423e467eee589'>Answers</h2>
+
+<h3 id='temp:C:DURbadc66844c4e39ebb89079cae'><u><b>Question 1:  </b></u>Can you provide ALL detailed test cases for the given endpoint (in microservice A)?</h3>
+
+<h4 id='temp:C:DUR9677bdeca6d9dfa265422ec0a'>Design Test Cases for given endpoint (in microservice A):</h4>
+
+<u><b>Endpoint</b></u>: PATCH https://<code>base</code>/qr_codes/:qr_code_id<br/>
+
+<br/>
+
+<br/>
+
+<div data-section-style='13'><table id='temp:C:DURa802a17add2dd7d03c489ed99' title='Sheet4' style='width: 65.5027em'><tbody><tr id='temp:C:DUR1bdb1570dccdbfdb85f82982c'><td id='temp:s:temp:C:DUR1bdb1570dccdbfdb85f82982c;temp:C:DUR14512303f7d6a1646ef0da48d' style='background-color:#3DD4F5;text-align: center;' class='bold'><br>Scenarioes<br> 
+
+<br/></td><td id='temp:s:temp:C:DUR1bdb1570dccdbfdb85f82982c;temp:C:DURb54d9658b8c7aaef76f66b8b0' style='background-color:#3DD4F5;text-align: center;' class='bold'><br>TC No.<br> 
+
+<br/></td><td id='temp:s:temp:C:DUR1bdb1570dccdbfdb85f82982c;temp:C:DURf98f247b9773356c1c9499307' style='background-color:#3DD4F5;text-align: center;' class='bold'><br>Test Case Name<br>  
+
+<br/></td><td id='temp:s:temp:C:DUR1bdb1570dccdbfdb85f82982c;temp:C:DUR4db7d30010675b9199b225b2f' style='background-color:#3DD4F5;text-align: center;' class='bold'><br>Status<br> 
+
+<br/></td><td id='temp:s:temp:C:DUR1bdb1570dccdbfdb85f82982c;temp:C:DUR447d17aa9e0f5732e88c47a46' style='background-color:#3DD4F5;text-align: center;' class='bold'><br>Given<br> 
+
+<br/></td><td id='temp:s:temp:C:DUR1bdb1570dccdbfdb85f82982c;temp:C:DUR20d16d73eb40d5a276e301b30' style='background-color:#3DD4F5;text-align: center;' class='bold'><br>When<br>  
+
+<br/></td><td id='temp:s:temp:C:DUR1bdb1570dccdbfdb85f82982c;temp:C:DURd0aa32613d4507771928772af' style='background-color:#3DD4F5;text-align: center;' class='bold'><br>Then <br> 
+
+<br/></td></tr><tr id='temp:C:DUR428acf02f7e68808a34b68196'><td id='temp:s:temp:C:DUR428acf02f7e68808a34b68196;temp:C:DUR14512303f7d6a1646ef0da48d' style='background-color:#EBFBEA;text-align: center;' class='bold'>Positive scenarioes
+
+<br/></td><td id='temp:s:temp:C:DUR428acf02f7e68808a34b68196;temp:C:DURb54d9658b8c7aaef76f66b8b0' style='background-color:#EBFBEA;text-align: center;'>1
+
+<br/></td><td id='temp:s:temp:C:DUR428acf02f7e68808a34b68196;temp:C:DURf98f247b9773356c1c9499307' style='background-color:#EBFBEA;'>Verify that updating QR code successfully 
+
+<br/></td><td id='temp:s:temp:C:DUR428acf02f7e68808a34b68196;temp:C:DUR4db7d30010675b9199b225b2f' style='background-color:#EBFBEA;text-align: center;'>200
+
+<br/></td><td id='temp:s:temp:C:DUR428acf02f7e68808a34b68196;temp:C:DUR447d17aa9e0f5732e88c47a46' style='background-color:#EBFBEA;'>The user has valid QR code in authenticated session 
+
+<br/></td><td id='temp:s:temp:C:DUR428acf02f7e68808a34b68196;temp:C:DUR20d16d73eb40d5a276e301b30' style='background-color:#EBFBEA;'>Send the PATCH request with body<br>{<br>    "description" : "xendit challenge - Anh Pham",<br>    "callback_url":  "https://callback_link.com",<br>    "amount": 2500<br>}
+
+<br/></td><td id='temp:s:temp:C:DUR428acf02f7e68808a34b68196;temp:C:DURd0aa32613d4507771928772af' style='background-color:#EBFBEA;'>The response should be returned with 200 status code<br>And QR code should be updated successfully
+
+<br/></td></tr><tr id='temp:C:DUR29c11501155c0bd3cdc3b3919'><td id='temp:s:temp:C:DUR29c11501155c0bd3cdc3b3919;temp:C:DUR14512303f7d6a1646ef0da48d' style='background-color:#FFE6E5;text-align: center;' class='bold'>Negative scenarios
+
+<br/></td><td id='temp:s:temp:C:DUR29c11501155c0bd3cdc3b3919;temp:C:DURb54d9658b8c7aaef76f66b8b0' style='background-color:#FFE6E5;text-align: center;'>2
+
+<br/></td><td id='temp:s:temp:C:DUR29c11501155c0bd3cdc3b3919;temp:C:DURf98f247b9773356c1c9499307' style='background-color:#FFE6E5;'>Verify that updating with QR Code in use
+
+<br/></td><td id='temp:s:temp:C:DUR29c11501155c0bd3cdc3b3919;temp:C:DUR4db7d30010675b9199b225b2f' style='background-color:#FFE6E5;text-align: center;'>400
+
+<br/></td><td id='temp:s:temp:C:DUR29c11501155c0bd3cdc3b3919;temp:C:DUR447d17aa9e0f5732e88c47a46' style='background-color:#FFE6E5;'>The user is in authenticated session<br>And the QR code has been used
+
+<br/></td><td id='temp:s:temp:C:DUR29c11501155c0bd3cdc3b3919;temp:C:DUR20d16d73eb40d5a276e301b30' style='background-color:#FFE6E5;'>Send the PATCH request with body<br>{<br>    "description" : "xendit challenge - Anh Pham",<br>    "callback_url":  "https://callback_link.com",<br>    "amount": 2500<br>}
+
+<br/></td><td id='temp:s:temp:C:DUR29c11501155c0bd3cdc3b3919;temp:C:DURd0aa32613d4507771928772af' style='background-color:#FFE6E5;'>The response should be returned with 400 status code<br>And get the error code message ‘QR_CODE_CODE_IN_USE’
+
+<br/></td></tr><tr id='temp:C:DUR83edca0d06221480127af2c63'><td id='temp:s:temp:C:DUR83edca0d06221480127af2c63;temp:C:DUR14512303f7d6a1646ef0da48d' style='background-color:#FFE6E5;text-align: center;'>
+
+<br/></td><td id='temp:s:temp:C:DUR83edca0d06221480127af2c63;temp:C:DURb54d9658b8c7aaef76f66b8b0' style='background-color:#FFE6E5;text-align: center;'>3
+
+<br/></td><td id='temp:s:temp:C:DUR83edca0d06221480127af2c63;temp:C:DURf98f247b9773356c1c9499307' style='background-color:#FFE6E5;'>Verify that updating QR code without authentication token provided
+
+<br/></td><td id='temp:s:temp:C:DUR83edca0d06221480127af2c63;temp:C:DUR4db7d30010675b9199b225b2f' style='background-color:#FFE6E5;text-align: center;'>403
+
+<br/></td><td id='temp:s:temp:C:DUR83edca0d06221480127af2c63;temp:C:DUR447d17aa9e0f5732e88c47a46' style='background-color:#FFE6E5;'>The user has valid QR code
+
+<br/></td><td id='temp:s:temp:C:DUR83edca0d06221480127af2c63;temp:C:DUR20d16d73eb40d5a276e301b30' style='background-color:#FFE6E5;'>Send the PATCH request with body<br>{<br>    "description" : "xendit challenge - Anh Pham",<br>    "callback_url":  "https://callback_link.com",<br>    "amount": 2500<br>}
+
+<br/></td><td id='temp:s:temp:C:DUR83edca0d06221480127af2c63;temp:C:DURd0aa32613d4507771928772af' style='background-color:#FFE6E5;'>The response should be returned with 403 status code<br>And getting the forbidden error like 'you don't have permission to do this action'
+
+<br/></td></tr><tr id='temp:C:DURe95d908985d399b788d512025'><td id='temp:s:temp:C:DURe95d908985d399b788d512025;temp:C:DUR14512303f7d6a1646ef0da48d' style='background-color:#FFE6E5;text-align: center;'>
+
+<br/></td><td id='temp:s:temp:C:DURe95d908985d399b788d512025;temp:C:DURb54d9658b8c7aaef76f66b8b0' style='background-color:#FFE6E5;text-align: center;'>4
+
+<br/></td><td id='temp:s:temp:C:DURe95d908985d399b788d512025;temp:C:DURf98f247b9773356c1c9499307' style='background-color:#FFE6E5;'>Verify that updating QR code with invalid authentication token
+
+<br/></td><td id='temp:s:temp:C:DURe95d908985d399b788d512025;temp:C:DUR4db7d30010675b9199b225b2f' style='background-color:#FFE6E5;text-align: center;'>401
+
+<br/></td><td id='temp:s:temp:C:DURe95d908985d399b788d512025;temp:C:DUR447d17aa9e0f5732e88c47a46' style='background-color:#FFE6E5;'>The user has an invalid authenticated token<br>And valid QR code
+
+<br/></td><td id='temp:s:temp:C:DURe95d908985d399b788d512025;temp:C:DUR20d16d73eb40d5a276e301b30' style='background-color:#FFE6E5;'>Send the PATCH request with body<br>{<br>    "description" : "xendit challenge - Anh Pham",<br>    "callback_url":  "https://callback_link.com",<br>    "amount": 2500<br>}
+
+<br/></td><td id='temp:s:temp:C:DURe95d908985d399b788d512025;temp:C:DURd0aa32613d4507771928772af' style='background-color:#FFE6E5;'>The response should be returned with 401 status code<br>
+
+<br/></td></tr><tr id='temp:C:DUR98f0e9672afb9118e57d0926c'><td id='temp:s:temp:C:DUR98f0e9672afb9118e57d0926c;temp:C:DUR14512303f7d6a1646ef0da48d' style='background-color:#FFE6E5;text-align: center;'>
+
+<br/></td><td id='temp:s:temp:C:DUR98f0e9672afb9118e57d0926c;temp:C:DURb54d9658b8c7aaef76f66b8b0' style='background-color:#FFE6E5;text-align: center;'>5
+
+<br/></td><td id='temp:s:temp:C:DUR98f0e9672afb9118e57d0926c;temp:C:DURf98f247b9773356c1c9499307' style='background-color:#FFE6E5;'>Verify that updating QR code while server disconnected
+
+<br/></td><td id='temp:s:temp:C:DUR98f0e9672afb9118e57d0926c;temp:C:DUR4db7d30010675b9199b225b2f' style='background-color:#FFE6E5;text-align: center;'>500
+
+<br/></td><td id='temp:s:temp:C:DUR98f0e9672afb9118e57d0926c;temp:C:DUR447d17aa9e0f5732e88c47a46' style='background-color:#FFE6E5;'>Given server is down
+
+<br/></td><td id='temp:s:temp:C:DUR98f0e9672afb9118e57d0926c;temp:C:DUR20d16d73eb40d5a276e301b30' style='background-color:#FFE6E5;'>Send the PATCH request with body<br>{<br>    "description" : "xendit challenge - Anh Pham",<br>    "callback_url":  "https://callback_link.com",<br>    "amount": 2500<br>}
+
+<br/></td><td id='temp:s:temp:C:DUR98f0e9672afb9118e57d0926c;temp:C:DURd0aa32613d4507771928772af' style='background-color:#FFE6E5;'>The response should be returned with 500 status code<br>
+
+<br/></td></tr><tr id='temp:C:DURa009fe21e537bfe49c09073d3'><td id='temp:s:temp:C:DURa009fe21e537bfe49c09073d3;temp:C:DUR14512303f7d6a1646ef0da48d' style='background-color:#FFE6E5;text-align: center;'>
+
+<br/></td><td id='temp:s:temp:C:DURa009fe21e537bfe49c09073d3;temp:C:DURb54d9658b8c7aaef76f66b8b0' style='background-color:#FFE6E5;text-align: center;'>6
+
+<br/></td><td id='temp:s:temp:C:DURa009fe21e537bfe49c09073d3;temp:C:DURf98f247b9773356c1c9499307' style='background-color:#FFE6E5;'>Verify that updating with invalid parameter <code>qr_code_id</code>
+
+<br/></td><td id='temp:s:temp:C:DURa009fe21e537bfe49c09073d3;temp:C:DUR4db7d30010675b9199b225b2f' style='background-color:#FFE6E5;text-align: center;'>400
+
+<br/></td><td id='temp:s:temp:C:DURa009fe21e537bfe49c09073d3;temp:C:DUR447d17aa9e0f5732e88c47a46' style='background-color:#FFE6E5;'>The user is in authenticated session<br>And user has an invalid <code>qr_code_id</code> 
+
+<br/></td><td id='temp:s:temp:C:DURa009fe21e537bfe49c09073d3;temp:C:DUR20d16d73eb40d5a276e301b30' style='background-color:#FFE6E5;'>Send the PATCH request with invalid <code>qr_code_id</code>
+
+<br/></td><td id='temp:s:temp:C:DURa009fe21e537bfe49c09073d3;temp:C:DURd0aa32613d4507771928772af' style='background-color:#FFE6E5;'>The response should be returned with 400 status code<br>And get the error code message ‘QR_CODE_NOT_FOUND_ERROR’
+
+<br/></td></tr><tr id='temp:C:DUR4e1d5c547ae595e07580bc390'><td id='temp:s:temp:C:DUR4e1d5c547ae595e07580bc390;temp:C:DUR14512303f7d6a1646ef0da48d' style='background-color:#FFE6E5;text-align: center;'>
+
+<br/></td><td id='temp:s:temp:C:DUR4e1d5c547ae595e07580bc390;temp:C:DURb54d9658b8c7aaef76f66b8b0' style='background-color:#FFE6E5;text-align: center;'>7
+
+<br/></td><td id='temp:s:temp:C:DUR4e1d5c547ae595e07580bc390;temp:C:DURf98f247b9773356c1c9499307' style='background-color:#FFE6E5;'>Verify that updating with missing madatory parameter <code>qr_code_id</code>
+
+<br/></td><td id='temp:s:temp:C:DUR4e1d5c547ae595e07580bc390;temp:C:DUR4db7d30010675b9199b225b2f' style='background-color:#FFE6E5;text-align: center;'>404
+
+<br/></td><td id='temp:s:temp:C:DUR4e1d5c547ae595e07580bc390;temp:C:DUR447d17aa9e0f5732e88c47a46' style='background-color:#FFE6E5;'>The user is in authenticated session
+
+<br/></td><td id='temp:s:temp:C:DUR4e1d5c547ae595e07580bc390;temp:C:DUR20d16d73eb40d5a276e301b30' style='background-color:#FFE6E5;'>Send the PATCH request with empty <code>qr_code_id</code>
+
+<br/></td><td id='temp:s:temp:C:DUR4e1d5c547ae595e07580bc390;temp:C:DURd0aa32613d4507771928772af' style='background-color:#FFE6E5;'>The response should be returned with 404 status code<br>
+
+<br/></td></tr><tr id='temp:C:DURddf366a8dffdd26e4569b46c0'><td id='temp:s:temp:C:DURddf366a8dffdd26e4569b46c0;temp:C:DUR14512303f7d6a1646ef0da48d' style='background-color:#FFE6E5;text-align: center;'>
+
+<br/></td><td id='temp:s:temp:C:DURddf366a8dffdd26e4569b46c0;temp:C:DURb54d9658b8c7aaef76f66b8b0' style='background-color:#FFE6E5;text-align: center;'>8
+
+<br/></td><td id='temp:s:temp:C:DURddf366a8dffdd26e4569b46c0;temp:C:DURf98f247b9773356c1c9499307' style='background-color:#FFE6E5;'>Verifying that update with a QR code has been used
+
+<br/></td><td id='temp:s:temp:C:DURddf366a8dffdd26e4569b46c0;temp:C:DUR4db7d30010675b9199b225b2f' style='background-color:#FFE6E5;text-align: center;'>422
+
+<br/></td><td id='temp:s:temp:C:DURddf366a8dffdd26e4569b46c0;temp:C:DUR447d17aa9e0f5732e88c47a46' style='background-color:#FFE6E5;'>The user is in authenticated session
+
+<br/></td><td id='temp:s:temp:C:DURddf366a8dffdd26e4569b46c0;temp:C:DUR20d16d73eb40d5a276e301b30' style='background-color:#FFE6E5;'>Send the PATCH request <code>qr_code_id</code> in use
+
+<br/></td><td id='temp:s:temp:C:DURddf366a8dffdd26e4569b46c0;temp:C:DURd0aa32613d4507771928772af' style='background-color:#FFE6E5;'>The response should be returned with 404 status code
+
+<br/></td></tr><tr id='temp:C:DUR78aea85cb5c6da6f7d2c08fdb'><td id='temp:s:temp:C:DUR78aea85cb5c6da6f7d2c08fdb;temp:C:DUR14512303f7d6a1646ef0da48d' style='background-color:#FFE6E5;text-align: center;'>
+
+<br/></td><td id='temp:s:temp:C:DUR78aea85cb5c6da6f7d2c08fdb;temp:C:DURb54d9658b8c7aaef76f66b8b0' style='background-color:#FFE6E5;text-align: center;'>8
+
+<br/></td><td id='temp:s:temp:C:DUR78aea85cb5c6da6f7d2c08fdb;temp:C:DURf98f247b9773356c1c9499307' style='background-color:#FFE6E5;'>Verify that updating QR code with missing all input fields 
+
+<br/></td><td id='temp:s:temp:C:DUR78aea85cb5c6da6f7d2c08fdb;temp:C:DUR4db7d30010675b9199b225b2f' style='background-color:#FFE6E5;text-align: center;'>400
+
+<br/></td><td id='temp:s:temp:C:DUR78aea85cb5c6da6f7d2c08fdb;temp:C:DUR447d17aa9e0f5732e88c47a46' style='background-color:#FFE6E5;'>The user has valid QR code in authenticated session 
+
+<br/></td><td id='temp:s:temp:C:DUR78aea85cb5c6da6f7d2c08fdb;temp:C:DUR20d16d73eb40d5a276e301b30' style='background-color:#FFE6E5;'>Send the PATCH request with body json missing all fields {}
+
+<br/></td><td id='temp:s:temp:C:DUR78aea85cb5c6da6f7d2c08fdb;temp:C:DURd0aa32613d4507771928772af' style='background-color:#FFE6E5;'>The response should be returned with 400 status code<br>
+
+<br/></td></tr><tr id='temp:C:DURf6c743b602a8ca422fe3b6a40'><td id='temp:s:temp:C:DURf6c743b602a8ca422fe3b6a40;temp:C:DUR14512303f7d6a1646ef0da48d' style='background-color:#FFE6E5;text-align: center;'>
+
+<br/></td><td id='temp:s:temp:C:DURf6c743b602a8ca422fe3b6a40;temp:C:DURb54d9658b8c7aaef76f66b8b0' style='background-color:#FFE6E5;text-align: center;'>9
+
+<br/></td><td id='temp:s:temp:C:DURf6c743b602a8ca422fe3b6a40;temp:C:DURf98f247b9773356c1c9499307' style='background-color:#FFE6E5;'>Verify that updating QR code with missing description field
+
+<br/></td><td id='temp:s:temp:C:DURf6c743b602a8ca422fe3b6a40;temp:C:DUR4db7d30010675b9199b225b2f' style='background-color:#FFE6E5;text-align: center;'>400
+
+<br/></td><td id='temp:s:temp:C:DURf6c743b602a8ca422fe3b6a40;temp:C:DUR447d17aa9e0f5732e88c47a46' style='background-color:#FFE6E5;'>The user has valid QR code in authenticated session 
+
+<br/></td><td id='temp:s:temp:C:DURf6c743b602a8ca422fe3b6a40;temp:C:DUR20d16d73eb40d5a276e301b30' style='background-color:#FFE6E5;'>Send the PATCH request with body json missing description field <br>{<br>    "callback_url":  "/callback_link",<br>    "amount": 1000<br>}
+
+<br/></td><td id='temp:s:temp:C:DURf6c743b602a8ca422fe3b6a40;temp:C:DURd0aa32613d4507771928772af' style='background-color:#FFE6E5;'>The response should be returned with 400 status code<br>
+
+<br/></td></tr><tr id='temp:C:DURbab4c3d8c66b59a8837390643'><td id='temp:s:temp:C:DURbab4c3d8c66b59a8837390643;temp:C:DUR14512303f7d6a1646ef0da48d' style='background-color:#FFE6E5;text-align: center;'>
+
+<br/></td><td id='temp:s:temp:C:DURbab4c3d8c66b59a8837390643;temp:C:DURb54d9658b8c7aaef76f66b8b0' style='background-color:#FFE6E5;text-align: center;'>10
+
+<br/></td><td id='temp:s:temp:C:DURbab4c3d8c66b59a8837390643;temp:C:DURf98f247b9773356c1c9499307' style='background-color:#FFE6E5;'>Verify that updating QR code with missing callback_url field
+
+<br/></td><td id='temp:s:temp:C:DURbab4c3d8c66b59a8837390643;temp:C:DUR4db7d30010675b9199b225b2f' style='background-color:#FFE6E5;text-align: center;'>400
+
+<br/></td><td id='temp:s:temp:C:DURbab4c3d8c66b59a8837390643;temp:C:DUR447d17aa9e0f5732e88c47a46' style='background-color:#FFE6E5;'>The user has valid QR code in authenticated session 
+
+<br/></td><td id='temp:s:temp:C:DURbab4c3d8c66b59a8837390643;temp:C:DUR20d16d73eb40d5a276e301b30' style='background-color:#FFE6E5;'>Send the PATCH request with body json missing callback_url field<br>{<br>    "description" : "test",<br>    "amount": 1000<br>}
+
+<br/></td><td id='temp:s:temp:C:DURbab4c3d8c66b59a8837390643;temp:C:DURd0aa32613d4507771928772af' style='background-color:#FFE6E5;'>The response should be returned with 400 status code<br>
+
+<br/></td></tr><tr id='temp:C:DURe058005de1c4cdc3c744ed1b1'><td id='temp:s:temp:C:DURe058005de1c4cdc3c744ed1b1;temp:C:DUR14512303f7d6a1646ef0da48d' style='background-color:#FFE6E5;text-align: center;'>
+
+<br/></td><td id='temp:s:temp:C:DURe058005de1c4cdc3c744ed1b1;temp:C:DURb54d9658b8c7aaef76f66b8b0' style='background-color:#FFE6E5;text-align: center;'>11
+
+<br/></td><td id='temp:s:temp:C:DURe058005de1c4cdc3c744ed1b1;temp:C:DURf98f247b9773356c1c9499307' style='background-color:#FFE6E5;'>Verify that updating QR code with missing amount field
+
+<br/></td><td id='temp:s:temp:C:DURe058005de1c4cdc3c744ed1b1;temp:C:DUR4db7d30010675b9199b225b2f' style='background-color:#FFE6E5;text-align: center;'>400
+
+<br/></td><td id='temp:s:temp:C:DURe058005de1c4cdc3c744ed1b1;temp:C:DUR447d17aa9e0f5732e88c47a46' style='background-color:#FFE6E5;'>The user has valid QR code in authenticated session 
+
+<br/></td><td id='temp:s:temp:C:DURe058005de1c4cdc3c744ed1b1;temp:C:DUR20d16d73eb40d5a276e301b30' style='background-color:#FFE6E5;'>Send the PATCH request with body json missing amount field<br>{<br>    "description" : "test",<br>    "callback_url":  "/callback_link"<br>}
+
+<br/></td><td id='temp:s:temp:C:DURe058005de1c4cdc3c744ed1b1;temp:C:DURd0aa32613d4507771928772af' style='background-color:#FFE6E5;'>The response should be returned with 400 status code<br>
+
+<br/></td></tr><tr id='temp:C:DUR957c6cf51d4a35dc058169a14'><td id='temp:s:temp:C:DUR957c6cf51d4a35dc058169a14;temp:C:DUR14512303f7d6a1646ef0da48d' style='background-color:#FFE6E5;text-align: center;'>
+
+<br/></td><td id='temp:s:temp:C:DUR957c6cf51d4a35dc058169a14;temp:C:DURb54d9658b8c7aaef76f66b8b0' style='background-color:#FFE6E5;text-align: center;'>12
+
+<br/></td><td id='temp:s:temp:C:DUR957c6cf51d4a35dc058169a14;temp:C:DURf98f247b9773356c1c9499307' style='background-color:#FFE6E5;'>Verify that updating QR code with invalid Json format
+
+<br/></td><td id='temp:s:temp:C:DUR957c6cf51d4a35dc058169a14;temp:C:DUR4db7d30010675b9199b225b2f' style='background-color:#FFE6E5;text-align: center;'>400
+
+<br/></td><td id='temp:s:temp:C:DUR957c6cf51d4a35dc058169a14;temp:C:DUR447d17aa9e0f5732e88c47a46' style='background-color:#FFE6E5;'>The user has valid QR code in authenticated session 
+
+<br/></td><td id='temp:s:temp:C:DUR957c6cf51d4a35dc058169a14;temp:C:DUR20d16d73eb40d5a276e301b30' style='background-color:#FFE6E5;'>Send the PATCH request with invalid body json 
+
+<br/></td><td id='temp:s:temp:C:DUR957c6cf51d4a35dc058169a14;temp:C:DURd0aa32613d4507771928772af' style='background-color:#FFE6E5;'>The response should be returned with 400 status code<br>
+
+<br/></td></tr><tr id='temp:C:DURd4fa9e4e53d0a2526eb4fbf8f'><td id='temp:s:temp:C:DURd4fa9e4e53d0a2526eb4fbf8f;temp:C:DUR14512303f7d6a1646ef0da48d' style='background-color:#FFE6E5;text-align: center;'>
+
+<br/></td><td id='temp:s:temp:C:DURd4fa9e4e53d0a2526eb4fbf8f;temp:C:DURb54d9658b8c7aaef76f66b8b0' style='background-color:#FFE6E5;text-align: center;'>13
+
+<br/></td><td id='temp:s:temp:C:DURd4fa9e4e53d0a2526eb4fbf8f;temp:C:DURf98f247b9773356c1c9499307' style='background-color:#FFE6E5;'>Verify that update QR code with minimum amount less than 1500
+
+<br/></td><td id='temp:s:temp:C:DURd4fa9e4e53d0a2526eb4fbf8f;temp:C:DUR4db7d30010675b9199b225b2f' style='background-color:#FFE6E5;text-align: center;'>422
+
+<br/></td><td id='temp:s:temp:C:DURd4fa9e4e53d0a2526eb4fbf8f;temp:C:DUR447d17aa9e0f5732e88c47a46' style='background-color:#FFE6E5;'>The user has valid QR code in authenticated session 
+
+<br/></td><td id='temp:s:temp:C:DURd4fa9e4e53d0a2526eb4fbf8f;temp:C:DUR20d16d73eb40d5a276e301b30' style='background-color:#FFE6E5;'>Send the PATCH request with body<br>{<br>    "description" : "xendit challenge - Anh Pham",<br>    "callback_url":  "https://callback_link.com",<br>    "amount": 1499<br>}
+
+<br/></td><td id='temp:s:temp:C:DURd4fa9e4e53d0a2526eb4fbf8f;temp:C:DURd0aa32613d4507771928772af' style='background-color:#FFE6E5;'>The response should be returned with 422 status code<br>
+
+<br/></td></tr><tr id='temp:C:DURe983821e17a886301f328b97f'><td id='temp:s:temp:C:DURe983821e17a886301f328b97f;temp:C:DUR14512303f7d6a1646ef0da48d' style='background-color:#FFE6E5;text-align: center;'>
+
+<br/></td><td id='temp:s:temp:C:DURe983821e17a886301f328b97f;temp:C:DURb54d9658b8c7aaef76f66b8b0' style='background-color:#FFE6E5;text-align: center;'>14
+
+<br/></td><td id='temp:s:temp:C:DURe983821e17a886301f328b97f;temp:C:DURf98f247b9773356c1c9499307' style='background-color:#FFE6E5;'>Verify that update QR code with maximum amount greater than 5000000
+
+<br/></td><td id='temp:s:temp:C:DURe983821e17a886301f328b97f;temp:C:DUR4db7d30010675b9199b225b2f' style='background-color:#FFE6E5;text-align: center;'>422
+
+<br/></td><td id='temp:s:temp:C:DURe983821e17a886301f328b97f;temp:C:DUR447d17aa9e0f5732e88c47a46' style='background-color:#FFE6E5;'>The user has valid QR code in authenticated session 
+
+<br/></td><td id='temp:s:temp:C:DURe983821e17a886301f328b97f;temp:C:DUR20d16d73eb40d5a276e301b30' style='background-color:#FFE6E5;'>Send the PATCH request with body<br>{<br>    "description" : "xendit challenge - Anh Pham",<br>    "callback_url":  "https://callback_link.com",<br>    "amount": 5000001<br>}
+
+<br/></td><td id='temp:s:temp:C:DURe983821e17a886301f328b97f;temp:C:DURd0aa32613d4507771928772af' style='background-color:#FFE6E5;'>The response should be returned with 422 status code<br>
+
+<br/></td></tr><tr id='temp:C:DUR266f70fccafce55d2a90c15ba'><td id='temp:s:temp:C:DUR266f70fccafce55d2a90c15ba;temp:C:DUR14512303f7d6a1646ef0da48d' style='background-color:#E7FAFE;text-align: center;' class='bold'>Security scenarioes
+
+<br/></td><td id='temp:s:temp:C:DUR266f70fccafce55d2a90c15ba;temp:C:DURb54d9658b8c7aaef76f66b8b0' style='background-color:#E7FAFE;text-align: center;'>15
+
+<br/></td><td id='temp:s:temp:C:DUR266f70fccafce55d2a90c15ba;temp:C:DURf98f247b9773356c1c9499307' style='background-color:#E7FAFE;'>SQL injestion if server DB use SQL
+
+<br/></td><td id='temp:s:temp:C:DUR266f70fccafce55d2a90c15ba;temp:C:DUR4db7d30010675b9199b225b2f' style='background-color:#E7FAFE;text-align: center;'>404
+
+<br/></td><td id='temp:s:temp:C:DUR266f70fccafce55d2a90c15ba;temp:C:DUR447d17aa9e0f5732e88c47a46' style='background-color:#E7FAFE;'>The user has valid QR code in authenticated session <br>valid qr_code_id=12345
+
+<br/></td><td id='temp:s:temp:C:DUR266f70fccafce55d2a90c15ba;temp:C:DUR20d16d73eb40d5a276e301b30' style='background-color:#E7FAFE;'>Send the PATCH request with qr_code_id contains SQL injestion value<br>https://<code>base</code>/qr_codes/12345 OR 1=1
+
+<br/></td><td id='temp:s:temp:C:DUR266f70fccafce55d2a90c15ba;temp:C:DURd0aa32613d4507771928772af' style='background-color:#E7FAFE;'>The response should be returned with 404 status code
+
+<br/></td></tr><tr id='temp:C:DUR06487ae95918f0dfb33f53b4a'><td id='temp:s:temp:C:DUR06487ae95918f0dfb33f53b4a;temp:C:DUR14512303f7d6a1646ef0da48d' style='background-color:#E7FAFE;text-align: center;'>
+
+<br/></td><td id='temp:s:temp:C:DUR06487ae95918f0dfb33f53b4a;temp:C:DURb54d9658b8c7aaef76f66b8b0' style='background-color:#E7FAFE;text-align: center;'>16
+
+<br/></td><td id='temp:s:temp:C:DUR06487ae95918f0dfb33f53b4a;temp:C:DURf98f247b9773356c1c9499307' style='background-color:#E7FAFE;'>XSS validation for description or callback_url or amount field
+
+<br/></td><td id='temp:s:temp:C:DUR06487ae95918f0dfb33f53b4a;temp:C:DUR4db7d30010675b9199b225b2f' style='background-color:#E7FAFE;text-align: center;'>200
+
+<br/></td><td id='temp:s:temp:C:DUR06487ae95918f0dfb33f53b4a;temp:C:DUR447d17aa9e0f5732e88c47a46' style='background-color:#E7FAFE;'>The user has valid QR code in authenticated session<br>And user has javascript code &lt;script&gt;alert('Hacked')&lt;/script&gt;
+
+<br/></td><td id='temp:s:temp:C:DUR06487ae95918f0dfb33f53b4a;temp:C:DUR20d16d73eb40d5a276e301b30' style='background-color:#E7FAFE;'>Send the PATCH request with description field contain script<br>example:<br>{<br>    "description" : "&lt;script&gt;alert('Hacked')&lt;/script&gt;",<br>    "callback_url":  "callback_link.com",<br>    "amount": 2500<br>}
+
+<br/></td><td id='temp:s:temp:C:DUR06487ae95918f0dfb33f53b4a;temp:C:DURd0aa32613d4507771928772af' style='background-color:#E7FAFE;'>Status code returned base on request body, and should be not passed XSS hacked
+
+<br/></td></tr><tr id='temp:C:DURbba0c331236a529f8589db6a5'><td id='temp:s:temp:C:DURbba0c331236a529f8589db6a5;temp:C:DUR14512303f7d6a1646ef0da48d' style='background-color:#FEE7FE;text-align: center;' class='bold'>Validation scenarioes
+
+<br/></td><td id='temp:s:temp:C:DURbba0c331236a529f8589db6a5;temp:C:DURb54d9658b8c7aaef76f66b8b0' style='background-color:#FEE7FE;text-align: center;'>17
+
+<br/></td><td id='temp:s:temp:C:DURbba0c331236a529f8589db6a5;temp:C:DURf98f247b9773356c1c9499307' style='background-color:#FEE7FE;'>Verify that inputing invalid fields type
+
+<br/></td><td id='temp:s:temp:C:DURbba0c331236a529f8589db6a5;temp:C:DUR4db7d30010675b9199b225b2f' style='background-color:#FEE7FE;text-align: center;'>400
+
+<br/></td><td id='temp:s:temp:C:DURbba0c331236a529f8589db6a5;temp:C:DUR447d17aa9e0f5732e88c47a46' style='background-color:#FEE7FE;'>The user has valid QR code in authenticated session 
+
+<br/></td><td id='temp:s:temp:C:DURbba0c331236a529f8589db6a5;temp:C:DUR20d16d73eb40d5a276e301b30' style='background-color:#FEE7FE;'>Send the PATCH request with invalid field contain script<br>example:<br>{<br>    "description" :true,<br>    "callback_url":  "callback_link.com",<br>    "amount": "invalid number"<br>}
+
+<br/></td><td id='temp:s:temp:C:DURbba0c331236a529f8589db6a5;temp:C:DURd0aa32613d4507771928772af' style='background-color:#FEE7FE;'>The response should be returned with 400 status code<br>
+
+<br/></td></tr></tbody></table></div><h3 id='temp:C:DUR0034715c7af4bd22b06e2a913'>Question 2: Assume you have to call this endpoint (in microservice A) from another microservice (B). What kind of test case should you prepare to make sure this works accordingly?</h3>
+
+We should applied integration testing when microservice(A) call to microservice(B)<br/>
+
+<div data-section-style='5' style="" class=""><ul id='temp:C:DURe71855a159f94b8f058f7f5c2'><li id='temp:C:DUR542eb73da97d2d720835f9ca8' class='parent' value='1'>Verify the response from microservice(B) should be matched with expected result
+
+<br/></li><ul><li id='temp:C:DURf740fc58d8d3824a828a92e67' class=''>Should included if <span style="color:#282828" textcolor="#282828">microservice(B) is under maintainance or down</span>
+
+<br/></li></ul></ul></div><div data-section-style='5' style="" class=""><ul id='temp:C:DUR4e83e1a88ff622c3f06f500ce'><li id='temp:C:DUR902ed82e0f9acef91bea93928' class='' value='1'>Verify that any new version from <span style="color:#282828" textcolor="#282828">microservice(A) should not broken functionality of microservice(B) </span>
+
+<br/></li><li id='temp:C:DUR6b46baa7a4d73b0e9698a4475' class=''><span style="color:#282828" textcolor="#282828">And microservice(A) should following any changed from B and update accordingly</span>
+
+<br/></li><li id='temp:C:DUR90a97fa38a50e62fc63d6b88d' class=''>Verify if <span style="color:#282828" textcolor="#282828">request from microservice(A) in queue,  microservice(B) has multiple responses  typical sequential fashion, FIFO (First In, First Out)</span>
+
+<br/></li></ul></div></body></html>

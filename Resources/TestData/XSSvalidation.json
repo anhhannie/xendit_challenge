@@ -1,0 +1,5 @@
+{
+  "description": "<script>alert('Hacked')</script>",
+  "callback_url": "callback_link.com",
+  "amount": 2500
+}

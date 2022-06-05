@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+robotframework = "==3.2.1"
+requests = "*"
+robotframework-requests = "*"
+
+[packages]
+urllib3 = "*"
+robotframework = "==3.2.1"
+Faker = "==2.0.5"
+robotframework-faker = "*"
+
+[requires]
+python_version = "3.6"
